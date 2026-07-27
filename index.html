@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BYA TECH & DESIGN</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- External Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER WRAPPER (MULTILINGUAL WELCOME BANNER + NAVBAR) -->
+    <div class="sticky-header-wrapper">
+        <div class="typing-banner py-2 text-center">
+            <span class="fw-semibold fs-6">
+                <i class="fa-solid fa-sparkles text-warning me-2"></i>
+                <span id="typingGreeting" class="typing-text"></span>
+            </span>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark py-2">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <img src="/Images/My logo.png" alt="BYA Logo" class="brand-logo" >
+                    <span class="fw-bold fs-5">BYA TECH & DESIGN</span>
+                </a>
+                
+                <div class="d-flex align-items-center gap-2 order-lg-3 ms-auto ms-lg-0">
+                    <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
+                        <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    </button>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+                    <ul class="navbar-nav ms-auto gap-2">
+                        <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav_about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#dev-projects" data-i18n="nav_dev">Dev Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#design-projects" data-i18n="nav_design">Design Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills" data-i18n="nav_skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-custom text-white ms-lg-2" href="#contact" data-i18n="nav_contact">Contact Me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HERO / SHORT BIO SECTION -->
+    <section id="about" class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-2">Bakari Yazid Akanni</h1>
+                    <h5 class="text-info mb-4 fw-bold" data-i18n="hero_subtitle">
+                        Software Engineer | Backend .NET Developer | Full-Stack Web Developer | Graphic Designer
+                    </h5>
+                    
+                    <div class="glass-card mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-laptop-code me-2 text-info"></i><span data-i18n="bio_title">Short Bio</span></h5>
+                        <p data-i18n="bio_p1">I am <strong>Bakari Yazid Akanni</strong>, a Software Engineer specializing in backend development with ASP.NET Core and C#. I build secure, scalable, and user-friendly web applications while also creating modern visual designs and brand identities.</p>
+                        <p data-i18n="bio_p2">My passion lies in solving real-world problems through technology by developing management systems, RESTful APIs, and responsive web applications. Alongside software development, I design professional logos, social media graphics, and marketing materials.</p>
+                        <p class="mb-0" data-i18n="bio_p3">I am continuously learning new technologies and working toward my goal of becoming an internationally recognized software engineer and building my own IT company.</p>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-custom"><i class="fa-solid fa-paper-plane me-2"></i><span data-i18n="btn_get_in_touch">Get In Touch</span></a>
+                        <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-outline-secondary"><i class="fa-brands fa-github me-2"></i><span data-i18n="btn_github">GitHub Profile</span></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 text-center">
+                    <div class="profile-frame mx-auto">
+                        <img src="https://via.placeholder.com/350x350?text=Bakari+Yazid+Akanni" alt="Bakari Yazid Akanni Profile Picture" class="img-fluid rounded-circle profile-img shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROFILE PICTURE PLACEHOLDER -->
+
+                <div class="col-lg-5 text-center">
+
+                    <div class="profile-frame mx-auto">
+
+                        <img src="https://via.placeholder.com/350x350?text=Upload+Your+Photo+Here" alt="Bakari Yazid Akanni Profile Picture" class="img-fluid rounded-circle profile-img">
+
+                        <div class="profile-overlay-badge">
+
+                            <i class="fa-solid fa-camera text-white"></i>
+
+                        </div>
+
+                    </div>
+
+                    <p class="text-muted small mt-3">Replace <code>src</code> on this image tag with your personal photo!</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DEVELOPMENT PROJECTS SECTION -->
+    <section id="dev-projects" class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4 border-start border-primary border-4 ps-3" data-i18n="title_dev_projects">🚀 Development Projects</h2>
+            <div class="row g-4">
+                
+                <!-- Dev Project 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 data-i18n="proj1_title">QR Code Attendance Management System</h4>
+                            <p class="text-custom-muted" data-i18n="proj1_desc">A smart attendance management system that allows lecturers to generate dynamic QR codes for class sessions while students scan to record attendance securely.</p>
+                            
+                            <h6 class="text-info fs-7 fw-bold" data-i18n="key_features_label">Key Features:</h6>
+                            <ul class="text-custom-muted small ps-3">
+                                <li>QR Code generation & tracking</li>
+                                <li>JWT Authentication & RBAC</li>
+                                <li>Session management & late detection</li>
+                                <li>MySQL database integration</li>
+                            </ul>
+
+                            <div class="mb-3">
+                                <span class="badge badge-tech">ASP.NET Core Web API</span>
+                                <span class="badge badge-tech">C#</span>
+                                <span class="badge badge-tech">EF Core</span>
+                                <span class="badge badge-tech">MySQL</span>
+                                <span class="badge badge-tech">JWT</span>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_view_repo">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dev Project 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 data-i18n="proj2_title">Task Management System</h4>
+                            <p class="text-custom-muted" data-i18n="proj2_desc">A productivity web application that helps users create, organize, and monitor daily tasks with authentication and email reminders.</p>
+                            
+                            <h6 class="text-info fs-7 fw-bold" data-i18n="key_features_label">Key Features:</h6>
+                            <ul class="text-custom-muted small ps-3">
+                                <li>User registration / login</li>
+                                <li>Task CRUD & status management</li>
+                                <li>Email reminders & dashboard</li>
+                            </ul>
+
+                            <div class="mb-3">
+                                <span class="badge badge-tech">ASP.NET Core MVC</span>
+                                <span class="badge badge-tech">C#</span>
+                                <span class="badge badge-tech">EF Core</span>
+                                <span class="badge badge-tech">MySQL</span>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_view_repo">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dev Project 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 data-i18n="proj3_title">Student Record Management API</h4>
+                            <p class="text-custom-muted" data-i18n="proj3_desc">A REST API developed during internship for managing student information using JavaScript language.</p>
+                            
+                            <h6 class="text-info fs-7 fw-bold" data-i18n="key_features_label">Key Features:</h6>
+                            <ul class="text-custom-muted small ps-3">
+                                <li>Full CRUD operations</li>
+                                <li>MongoDB Atlas integration</li>
+                                <li>Express routing & validation</li>
+                            </ul>
+
+                            <div class="mb-3">
+                                <span class="badge badge-tech">Node.js</span>
+                                <span class="badge badge-tech">Express.js</span>
+                                <span class="badge badge-tech">MongoDB Atlas</span>
+                                <span class="badge badge-tech">Mongoose</span>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_view_repo">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dev Project 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 data-i18n="proj4_title">Note Management API</h4>
+                            <p class="text-custom-muted" data-i18n="proj4_desc">REST API allowing authenticated users to create and organize notes with analytics endpoints.</p>
+                            
+                            <h6 class="text-info fs-7 fw-bold" data-i18n="key_features_label">Key Features:</h6>
+                            <ul class="text-custom-muted small ps-3">
+                                <li>JWT Authentication</li>
+                                <li>Category filtering & search</li>
+                                <li>Analytics endpoints</li>
+                            </ul>
+
+                            <div class="mb-3">
+                                <span class="badge badge-tech">Node.js</span>
+                                <span class="badge badge-tech">Express.js</span>
+                                <span class="badge badge-tech">MongoDB</span>
+                                <span class="badge badge-tech">JWT</span>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_view_repo">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dev Project 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 data-i18n="proj5_title">Role-Based User Management API</h4>
+                            <p class="text-custom-muted" data-i18n="proj5_desc">A backend system implementing authentication and fine-grained role-based access control.</p>
+                            
+                            <h6 class="text-info fs-7 fw-bold" data-i18n="key_features_label">Key Features:</h6>
+                            <ul class="text-custom-muted small ps-3">
+                                <li>JWT User Authentication</li>
+                                <li>Admin dashboard & role promotion</li>
+                                <li>User blocking & protected routes</li>
+                            </ul>
+
+                            <div class="mb-3">
+                                <span class="badge badge-tech">Node.js</span>
+                                <span class="badge badge-tech">Express.js</span>
+                                <span class="badge badge-tech">MongoDB</span>
+                                <span class="badge badge-tech">bcrypt</span>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_view_repo">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dev Project 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 data-i18n="proj6_title">Responsive Restaurant Website</h4>
+                            <p class="text-custom-muted" data-i18n="proj6_desc">A modern, fully responsive restaurant website showcasing menus, dish features, testimonials, and contact features across all device sizes.</p>
+                            
+                            <h6 class="text-info fs-7 fw-bold" data-i18n="key_features_label">Key Features:</h6>
+                            <ul class="text-custom-muted small ps-3">
+                                <li>Interactive navigation & hero CTA</li>
+                                <li>Menu, dish showcase, and contact form</li>
+                                <li>Smooth scrolling and custom animations</li>
+                            </ul>
+
+                            <div class="mb-3">
+                                <span class="badge badge-tech">HTML5</span>
+                                <span class="badge badge-tech">CSS3</span>
+                                <span class="badge badge-tech">Bootstrap 5</span>
+                                <span class="badge badge-tech">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2">
+                            <a href="#" class="btn btn-sm btn-custom" data-i18n="btn_live_demo">Live Demo</a>
+                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN PROJECTS SECTION -->
+    <section id="design-projects" class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4 border-start border-primary border-4 ps-3" data-i18n="title_design_projects">🎨 Design Projects</h2>
+            <div class="row g-4">
+                
+                <!-- Design 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                        <div>
+                 <div class="design-img-container mb-3">
+
+                                <img src="/Images/Rahman.png" alt="BakStyle Fashion Designer Logo" class="img-fluid rounded design-showcase-img">
+
+                            </div>
+                            <h4 data-i18n="des1_title">BakStyle Fashion Logo</h4>
+                            <p class="text-custom-muted" data-i18n="des1_desc">Professional luxury logo designed for a fashion brand, featuring intricate gold and black aesthetics.</p>
+                        </div>
+                        <div>
+                            <span class="badge badge-tech"><i class="fa-solid fa-palette me-1"></i>AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                        <div>
+                            <div class="design-img-container mb-3">
+                                <img src="/Images/My logo.png" alt="BYA Personal Brand Logo" class="img-fluid rounded design-showcase-img" onerror="this.src='https://via.placeholder.com/300x180?text=BYA+Logo'">
+                            </div>
+                            <h4 data-i18n="des2_title">BYA Personal Brand Logo</h4>
+                            <p class="text-custom-muted" data-i18n="des2_desc">Modern tech-focused identity created for software engineering and graphic design services.</p>
+                        </div>
+                        <div>
+                            <span class="badge badge-tech"><i class="fa-solid fa-palette me-1"></i>AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                        <div>
+                            <div class="design-img-container mb-3">
+                                <img src="/Images/Rahimi.png" alt="Clim Doctor Service Brand Logo" class="img-fluid rounded design-showcase-img" onerror="this.src='https://via.placeholder.com/300x180?text=Clim+Doctor+Logo'">
+                            </div>
+                            <h4 data-i18n="des3_title">Clim Doctor Service Logo</h4>
+                            <p class="text-custom-muted" data-i18n="des3_desc">Clean vector concept logo designed for an HVAC, air conditioning, and maintenance company.</p>
+                        </div>
+                        <div>
+                            <span class="badge badge-tech"><i class="fa-solid fa-palette me-1"></i>AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                        <div>
+                            <div class="p-4 mb-3 rounded border border-secondary">
+                                <i class="fa-solid fa-bullhorn fa-3x text-info mb-2"></i>
+                                <h5>Promotional Graphics</h5>
+                            </div>
+                            <h4 data-i18n="des4_title">Business Flyers</h4>
+                            <p class="text-custom-muted" data-i18n="des4_desc">Professional promotional flyers for fashion boutiques, fabric stores, and birthday campaigns.</p>
+                        </div>
+                        <div>
+                            <span class="badge badge-tech"><i class="fa-solid fa-palette me-1"></i>Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                        <div>
+                            <div class="p-4 mb-3 rounded border border-secondary">
+                                <i class="fa-solid fa-file-contract fa-3x text-info mb-2"></i>
+                                <h5>Document Layouts</h5>
+                            </div>
+                            <h4 data-i18n="des5_title">CV & Resume Designs</h4>
+                            <p class="text-custom-muted" data-i18n="des5_desc">Clean, ATS-friendly resume and CV templates tailored for tech professionals and business executives.</p>
+                        </div>
+                        <div>
+                            <span class="badge badge-tech">Microsoft Word</span>
+                            <span class="badge badge-tech">Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                        <div>
+                            <div class="p-4 mb-3 rounded border border-secondary">
+                                <i class="fa-solid fa-hashtag fa-3x text-info mb-2"></i>
+                                <h5>Social Marketing</h5>
+                            </div>
+                            <h4 data-i18n="des6_title">Social Media Graphics</h4>
+                            <p class="text-custom-muted" data-i18n="des6_desc">High-converting social media posts, stories, and banner designs for small business branding.</p>
+                        </div>
+                        <div>
+                            <span class="badge badge-tech"><i class="fa-solid fa-palette me-1"></i>Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4 border-start border-primary border-4 ps-3" data-i18n="title_skills">🛠 Technical Skills</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-code text-info me-2"></i><span data-i18n="skills_prog">Programming</span></h5>
+                        <ul class="list-unstyled text-custom-muted mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>C#</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>JavaScript</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>HTML5 & CSS3</li>
+                            <li><i class="fa-solid fa-check text-info me-2"></i>SQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-server text-info me-2"></i><span data-i18n="skills_backend">Backend</span></h5>
+                        <ul class="list-unstyled text-custom-muted mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>ASP.NET Core MVC</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>ASP.NET Core Web API</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Entity Framework Core</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Node.js & Express.js</li>
+                            <li><i class="fa-solid fa-check text-info me-2"></i>JWT & Cookie Auth</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-database text-info me-2"></i><span data-i18n="skills_frontend_db">Frontend & Databases</span></h5>
+                        <ul class="list-unstyled text-custom-muted mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Bootstrap 5 & Responsive UI</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>MySQL</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>MongoDB & MongoDB Atlas</li>
+                            <li><i class="fa-solid fa-check text-info me-2"></i>Role-Based Authorization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-wrench text-info me-2"></i><span data-i18n="skills_tools">Developer Tools</span></h5>
+                        <ul class="list-unstyled text-custom-muted mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Visual Studio & VS Code</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Git & GitHub</li>
+                            <li><i class="fa-solid fa-check text-info me-2"></i>Postman API Client</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-pen-nib text-info me-2"></i><span data-i18n="skills_design_tools">Design Tools</span></h5>
+                        <ul class="list-unstyled text-custom-muted mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Canva (Brand Visuals & Logos)</li>
+                            <li><i class="fa-solid fa-check text-info me-2"></i>Pixel & Image Processing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-file-word text-info me-2"></i><span data-i18n="skills_office">Microsoft Office</span></h5>
+                        <ul class="list-unstyled text-custom-muted mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Microsoft Word</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Microsoft PowerPoint</li>
+                            <li><i class="fa-solid fa-check text-info me-2"></i>Microsoft Excel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-robot text-info me-2"></i><span data-i18n="skills_ai">AI Automation & Experience</span></h5>
+                        <ul class="list-unstyled text-custom-muted mb-0">
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>AI Workflow & Process Automation</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Generative AI Integration & Prompt Engineering</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-info me-2"></i>Automated Content & Asset Generation</li>
+                            <li><i class="fa-solid fa-check text-info me-2"></i>AI-Powered Developer Tools & Workflows</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="glass-card h-100">
+                        <h5 class="mb-3"><i class="fa-solid fa-language text-info me-2"></i><span data-i18n="skills_languages">Language Skills</span></h5>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span data-i18n="lang_french">French</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-info" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span data-i18n="lang_english">English</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-info" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION (WHATSAPP, EMAIL, PHONE & LOCATION) -->
+    <section id="contact" class="py-5">
+        <div class="container py-4">
+            <h2 class="fw-bold mb-4 border-start border-primary border-4 ps-3" data-i18n="title_contact">📞 Contact Me</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="glass-card h-100">
+                        <h4 class="mb-4" data-i18n="contact_details_title">Direct Details</h4>
+                        
+                        <!-- Email -->
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fa-solid fa-envelope text-info fs-4 me-3"></i>
+                            <div>
+                                <small class="text-custom-muted d-block" data-i18n="contact_email_label">Email Address</small>
+                                <a href="mailto:bakariyazid4@gmail.com" class="fw-bold text-decoration-none text-reset">bakariyazid4@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp Line 1 -->
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fa-brands fa-whatsapp text-success fs-4 me-3"></i>
+                            <div>
+                                <small class="text-custom-muted d-block">WhatsApp / Call (Benin)</small>
+                                <a href="https://wa.me/2290166189917?text=Hello%20Bakari,%20I%20saw%20your%20portfolio!" target="_blank" class="fw-bold text-decoration-none text-reset">+229 01 66 18 99 17</a>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp Line 2 -->
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fa-brands fa-whatsapp text-success fs-4 me-3"></i>
+                            <div>
+                                <small class="text-custom-muted d-block">WhatsApp / Call (Nigeria)</small>
+                                <a href="https://wa.me/2348050386872?text=Hello%20Bakari,%20I%20saw%20your%20portfolio!" target="_blank" class="fw-bold text-decoration-none text-reset">+234 80 50 38 68 72</a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fa-solid fa-location-dot text-info fs-4 me-3"></i>
+                            <div>
+                                <small class="text-custom-muted d-block" data-i18n="location_label">Location</small>
+                                <span class="fw-bold">Nigeria | Benin Republic</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Profiles -->
+                        <div class="d-flex gap-3 mt-4">
+                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-outline-secondary"><i class="fa-brands fa-github me-1"></i> GitHub</a>
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn btn-outline-info"><i class="fa-brands fa-linkedin me-1"></i> LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Form -->
+                <div class="col-lg-7">
+                    <div class="glass-card">
+                        <h4 class="mb-3" data-i18n="form_title">Send a Message Directly</h4>
+                        <p class="text-custom-muted small mb-4" data-i18n="form_subtext">Fill out this form to launch a pre-filled message directly to <strong>bakariyazid4@gmail.com</strong>.</p>
+                        
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="senderName" class="form-label" data-i18n="form_name_label">Your Name</label>
+                                <input type="text" class="form-control form-control-custom" id="senderName" placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="senderEmail" class="form-label" data-i18n="form_email_label">Your Email</label>
+                                <input type="email" class="form-control form-control-custom" id="senderEmail" placeholder="name@example.com" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="senderPhone" class="form-label" data-i18n="form_phone_label">Your Phone Number</label>
+                                <input type="tel" class="form-control form-control-custom" id="senderPhone" placeholder="+234 / +229 ..." required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="senderMessage" class="form-label" data-i18n="form_message_label">Message</label>
+                                <textarea class="form-control form-control-custom" id="senderMessage" rows="4" placeholder="Write your message or inquiry here..." required></textarea>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-custom flex-grow-1" data-i18n="btn_send"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER WITH LANGUAGE TRANSLATION OPTIONS -->
+    <footer class="py-4 text-center border-top border-secondary mt-5">
+        <div class="container">
+            <div class="mb-3">
+                <span class="text-custom-muted small d-block mb-2">
+                    <i class="fa-solid fa-globe me-1"></i> <span data-i18n="translate_portfolio">Translate Portfolio:</span>
+                </span>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <button type="button" class="btn btn-sm lang-btn active" onclick="switchLanguage('en')">English</button>
+                    <button type="button" class="btn btn-sm lang-btn" onclick="switchLanguage('fr')">Français (French)</button>
+                    <button type="button" class="btn btn-sm lang-btn" onclick="switchLanguage('es')">Español (Spanish)</button>
+                    <button type="button" class="btn btn-sm lang-btn" onclick="switchLanguage('ar')">العربية (Arabic)</button>
+                </div>
+            </div>
+
+            <p class="text-custom-muted small mb-0">&copy; 2026 Bakari Yazid Akanni | BYA TECH & DESIGN. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS LOGIC -->
+    <script>
+        const translations = {
+            en: {
+                nav_about: "About",
+                nav_dev: "Dev Projects",
+                nav_design: "Design Projects",
+                nav_skills: "Skills",
+                nav_contact: "Contact Me",
+                hero_subtitle: "Software Engineer | Backend .NET Developer | Full-Stack Web Developer | Graphic Designer",
+                bio_title: "Short Bio",
+                bio_p1: "I am Bakari Yazid Akanni, a Software Engineer specializing in backend development with ASP.NET Core and C#. I build secure, scalable, and user-friendly web applications while also creating modern visual designs and brand identities.",
+                bio_p2: "My passion lies in solving real-world problems through technology by developing management systems, RESTful APIs, and responsive web applications. Alongside software development, I design professional logos, social media graphics, and marketing materials.",
+                bio_p3: "I am continuously learning new technologies and working toward my goal of becoming an internationally recognized software engineer and building my own IT company.",
+                btn_get_in_touch: "Get In Touch",
+                btn_github: "GitHub Profile",
+                title_dev_projects: "🚀 Development Projects",
+                proj1_title: "QR Code Attendance Management System",
+                proj1_desc: "A smart attendance management system that allows lecturers to generate dynamic QR codes for class sessions while students scan to record attendance securely.",
+                proj2_title: "Task Management System",
+                proj2_desc: "A productivity web application that helps users create, organize, and monitor daily tasks with authentication and email reminders.",
+                proj3_title: "Student Record Management API",
+                proj3_desc: "A REST API developed during internship for managing student information using JavaScript language.",
+                proj4_title: "Note Management API",
+                proj4_desc: "REST API allowing authenticated users to create and organize notes with analytics endpoints.",
+                proj5_title: "Role-Based User Management API",
+                proj5_desc: "A backend system implementing authentication and fine-grained role-based access control.",
+                proj6_title: "Responsive Restaurant Website",
+                proj6_desc: "A modern, fully responsive restaurant website showcasing menus, dish features, testimonials, and contact features across all device sizes.",
+                btn_view_repo: "View Repository",
+                btn_live_demo: "Live Demo",
+                title_design_projects: "🎨 Design Projects",
+                des1_title: "BakStyle Fashion Logo",
+                des1_desc: "Professional luxury logo designed for a fashion brand, featuring intricate gold and black aesthetics.",
+                des2_title: "BYA Personal Brand Logo",
+                des2_desc: "Modern tech-focused identity created for software engineering and graphic design services.",
+                des3_title: "Clim Doctor Service Logo",
+                des3_desc: "Clean vector concept logo designed for an HVAC, air conditioning, and maintenance company.",
+                des4_title: "Business Flyers",
+                des4_desc: "Professional promotional flyers for fashion boutiques, fabric stores, and birthday campaigns.",
+                des5_title: "CV & Resume Designs",
+                des5_desc: "Clean, ATS-friendly resume and CV templates tailored for tech professionals and business executives.",
+                des6_title: "Social Media Graphics",
+                des6_desc: "High-converting social media posts, stories, and banner designs for small business branding.",
+                key_features_label: "Key Features:",
+                title_skills: "🛠 Technical Skills",
+                skills_prog: "Programming",
+                skills_backend: "Backend Frameworks",
+                skills_frontend_db: "Frontend & Databases",
+                skills_tools: "Developer Tools",
+                skills_design_tools: "Design Tools",
+                skills_office: "Microsoft Office",
+                skills_ai: "AI Automation & Experience",
+                skills_languages: "Language Skills",
+                lang_french: "French",
+                lang_english: "English",
+                title_contact: "📞 Contact Me",
+                contact_details_title: "Direct Details",
+                contact_email_label: "Email Address",
+                location_label: "Location",
+                form_title: "Send a Message Directly",
+                form_subtext: "Fill out this form to launch a pre-filled message directly to bakariyazid4@gmail.com.",
+                form_name_label: "Your Name",
+                form_email_label: "Your Email",
+                form_phone_label: "Your Phone Number",
+                form_message_label: "Message",
+                btn_send: "Send Message",
+                translate_portfolio: "Translate Portfolio:"
+            },
+            fr: {
+                nav_about: "À propos",
+                nav_dev: "Projets Dév",
+                nav_design: "Projets Design",
+                nav_skills: "Compétences",
+                nav_contact: "Contactez-moi",
+                hero_subtitle: "Ingénieur Logiciel | Développeur Backend .NET | Développeur Web Full-Stack | Designer Graphique",
+                bio_title: "Courte Biographie",
+                bio_p1: "Je suis Bakari Yazid Akanni, un ingénieur logiciel spécialisé dans le développement backend avec ASP.NET Core et C#. Je conçois des applications web sécurisées, évolutives et ergonomiques tout en créant des designs visuels modernes.",
+                bio_p2: "Ma passion est de résoudre des problèmes réels grâce à la technologie en développant des systèmes de gestion, des API RESTful et des applications web réactives. En plus du développement web, je crée des logos et des visuels professionnels.",
+                bio_p3: "J'apprends continuellement de nouvelles technologies afin de devenir un ingénieur logiciel reconnu à l'international et créer ma propre entreprise informatique.",
+                btn_get_in_touch: "Prendre Contact",
+                btn_github: "Profil GitHub",
+                title_dev_projects: "🚀 Projets de Développement",
+                proj1_title: "Système de Gestion de Présence par Code QR",
+                proj1_desc: "Un système intelligent permettant aux enseignants de générer des codes QR dynamiques pour enregistrer la présence des étudiants en toute sécurité.",
+                proj2_title: "Système de Gestion des Tâches",
+                proj2_desc: "Une application web de productivité aidant les utilisateurs à organiser et suivre leurs tâches quotidiennes avec rappels par e-mail.",
+                proj3_title: "API de Gestion des Dossiers Étudiants",
+                proj3_desc: "Une API REST développée pour la gestion des informations des étudiants en utilisant JavaScript.",
+                proj4_title: "API de Gestion de Notes",
+                proj4_desc: "API REST permettant aux utilisateurs authentifiés de créer et d'organiser leurs notes personnelles.",
+                proj5_title: "API de Gestion des Utilisateurs par Rôles",
+                proj5_desc: "Un système backend mettant en œuvre l'authentification et un contrôle d'accès basé sur les rôles.",
+                proj6_title: "Site Web de Restaurant Adaptatif",
+                proj6_desc: "Un site web moderne et réactif présentant les menus, plats, témoignages et formulaires de contact.",
+                btn_view_repo: "Voir le Dépôt",
+                btn_live_demo: "Démo en direct",
+                title_design_projects: "🎨 Projets de Design",
+                des1_title: "Logo Fashion BakStyle",
+                des1_desc: "Logo luxueux conçu pour une marque de mode avec une esthétique or et noir.",
+                des2_title: "Logo Marque Personnelle BYA",
+                des2_desc: "Identité moderne axée sur le génie logiciel et les services de design graphique.",
+                des3_title: "Logo Clim Doctor Service",
+                des3_desc: "Concept de logo vectoriel conçu pour une entreprise de climatisation et maintenance.",
+                des4_title: "Flyers Publicitaires",
+                des4_desc: "Flyers promotionnels pour boutiques de mode, magasins de tissus et événements.",
+                des5_title: "Modèles de CV & Resumes",
+                des5_desc: "Modèles de CV épurés et compatibles ATS pour professionnels de la tech et cadres.",
+                des6_title: "Graphismes pour Réseaux Sociaux",
+                des6_desc: "Publications et bannières captivantes pour les réseaux sociaux des entreprises.",
+                key_features_label: "Caractéristiques clés :",
+                title_skills: "🛠 Compétences Techniques",
+                skills_prog: "Programmation",
+                skills_backend: "Frameworks Backend",
+                skills_frontend_db: "Frontend & Bases de données",
+                skills_tools: "Outils de développement",
+                skills_design_tools: "Outils de design",
+                skills_office: "Microsoft Office",
+                skills_ai: "Automation IA & Expérience",
+                skills_languages: "Langues",
+                lang_french: "Français",
+                lang_english: "Anglais",
+                title_contact: "📞 Contactez-moi",
+                contact_details_title: "Coordonnées Directes",
+                contact_email_label: "Adresse Email",
+                location_label: "Localisation",
+                form_title: "Envoyer un Message Directement",
+                form_subtext: "Remplissez ce formulaire pour envoyer un message à bakariyazid4@gmail.com.",
+                form_name_label: "Votre Nom",
+                form_email_label: "Votre Email",
+                form_phone_label: "Votre Numéro de Téléphone",
+                form_message_label: "Message",
+                btn_send: "Envoyer le Message",
+                translate_portfolio: "Traduire le Portfolio :"
+            },
+            es: {
+                nav_about: "Sobre mí",
+                nav_dev: "Proyectos Dev",
+                nav_design: "Diseño",
+                nav_skills: "Habilidades",
+                nav_contact: "Contacto",
+                hero_subtitle: "Ingeniero de Software | Desarrollador Backend .NET | Desarrollador Web | Diseñador Gráfico",
+                bio_title: "Breve Biografía",
+                bio_p1: "Soy Bakari Yazid Akanni, ingeniero de software especializado en desarrollo backend con ASP.NET Core y C#. Desarrollo aplicaciones web seguras y modernas.",
+                bio_p2: "Mi pasión es resolver problemas reales mediante el desarrollo de sistemas de gestión, API RESTful y materiales gráficos profesionales.",
+                bio_p3: "Continúo aprendiendo nuevas tecnologías para convertirme en un ingeniero de software reconocido a nivel internacional.",
+                btn_get_in_touch: "Ponte en Contacto",
+                btn_github: "Perfil de GitHub",
+                title_dev_projects: "🚀 Proyectos de Desarrollo",
+                proj1_title: "Control de Asistencia con Código QR",
+                proj1_desc: "Sistema inteligente para generar códigos QR dinámicos para el registro seguro de asistencia estudiantil.",
+                proj2_title: "Sistema de Gestión de Tareas",
+                proj2_desc: "Aplicación web de productividad para organizar tareas diarias con recordatorios por correo.",
+                proj3_title: "API de Gestión de Estudiantes",
+                proj3_desc: "API REST desarrollada para la gestión de datos académicos usando JavaScript.",
+                proj4_title: "API de Gestión de Notas",
+                proj4_desc: "API REST para crear y organizar notas con análisis para usuarios autenticados.",
+                proj5_title: "API de Gestión con Roles",
+                proj5_desc: "Sistema backend con autenticación JWT y control de acceso basado en roles.",
+                proj6_title: "Sitio Web de Restaurante Adaptable",
+                proj6_desc: "Sitio web moderno y responsivo para restaurantes con menú e interactividad.",
+                btn_view_repo: "Ver Repositorio",
+                btn_live_demo: "Demo en vivo",
+                title_design_projects: "🎨 Proyectos de Diseño",
+                des1_title: "Logo BakStyle Fashion",
+                des1_desc: "Logotipo de lujo diseñado para una marca de moda con estética dorada y negra.",
+                des2_title: "Logo de Marca Personal BYA",
+                des2_desc: "Identidad moderna para servicios de ingeniería de software y diseño gráfico.",
+                des3_title: "Logo Clim Doctor Service",
+                des3_desc: "Logotipo vectorial para empresa de mantenimiento y aire acondicionado.",
+                des4_title: "Folletos Publicitarios",
+                des4_desc: "Folletos promocionales para tiendas de moda, telas y eventos especiales.",
+                des5_title: "Diseños de Currículum (CV)",
+                des5_desc: "Plantillas de CV optimizadas y compatibles con sistemas ATS para profesionales.",
+                des6_title: "Gráficos para Redes Sociales",
+                des6_desc: "Publicaciones e imágenes atractivas para potenciar marcas en redes sociales.",
+                key_features_label: "Características principales:",
+                title_skills: "🛠 Habilidades Técnicas",
+                skills_prog: "Programación",
+                skills_backend: "Frameworks Backend",
+                skills_frontend_db: "Frontend y Bases de Datos",
+                skills_tools: "Herramientas de Desarrollo",
+                skills_design_tools: "Herramientas de Diseño",
+                skills_office: "Microsoft Office",
+                skills_ai: "Automatización con IA",
+                skills_languages: "Idiomas",
+                lang_french: "Francés",
+                lang_english: "Inglés",
+                title_contact: "📞 Contáctame",
+                contact_details_title: "Detalles Directos",
+                contact_email_label: "Correo Electrónico",
+                location_label: "Ubicación",
+                form_title: "Enviar un Mensaje Directamente",
+                form_subtext: "Llena este formulario para enviar un mensaje directamente a bakariyazid4@gmail.com.",
+                form_name_label: "Tu Nombre",
+                form_email_label: "Tu Correo",
+                form_phone_label: "Tu Teléfono",
+                form_message_label: "Mensaje",
+                btn_send: "Enviar Mensaje",
+                translate_portfolio: "Traducir Portafolio:"
+            },
+            ar: {
+                nav_about: "عنّي",
+                nav_dev: "مشاريع التطوير",
+                nav_design: "التصميم",
+                nav_skills: "المهارات",
+                nav_contact: "اتصل بي",
+                hero_subtitle: "مهندس برمجيات | مطور .NET | مطور ويب متكامل | مصمم جرافيك",
+                bio_title: "نبذة قصيرة",
+                bio_p1: "أنا بكاري يزيد أكاني، مهندس برمجيات متخصص في تطوير الخلفية باستخدام ASP.NET Core و C#. أقوم ببناء تطبيقات ويب آمنة وقابلة للتطوير.",
+                bio_p2: "تكمن شغفي في حل المشكلات الواقعية باستخدام التكنولوجيا عبر تطوير أنظمة الإدارة وواجهات البرمجة RESTful وتصاميم الجرافيك.",
+                bio_p3: "أعمل باستمرار على تعلم تقنيات جديدة للوصول إلى هدفي كمهندس برمجيات معترف به عالمياً وإنشاء شركتي الخاصة.",
+                btn_get_in_touch: "تواصل معي",
+                btn_github: "ملف GitHub",
+                title_dev_projects: "🚀 مشاريع التطوير",
+                proj1_title: "نظام إدارة الحضور عبر رمز QR",
+                proj1_desc: "نظام ذكي يتيح للمحاضرين إنتاج رموز QR ديناميكية لتسجيل حضور الطلاب بأمان.",
+                proj2_title: "نظام إدارة المهام",
+                proj2_desc: "تطبيق ويب يساعد المستخدمين على تنظيم ومتابعة المهام اليومية مع إرسال تذكيرات عبر البريد الإلكتروني.",
+                proj3_title: "واجهة إدارة سجلات الطلاب",
+                proj3_desc: "واجهة برمجية REST تم تطويرها لإدارة بيانات الطلاب باستخدام JavaScript.",
+                proj4_title: "واجهة إدارة الملاحظات",
+                proj4_desc: "واجهة REST تتيح للمستخدمين إنشاء وتنظيم الملاحظات الشخصية.",
+                proj5_title: "واجهة إدارة المستخدمين حسب الأدوار",
+                proj5_desc: "نظام خلفي يعتمد على توثيق JWT والتحكم في الصلاحيات حسب الأدوار.",
+                proj6_title: "موقع مطعم متجاوب",
+                proj6_desc: "موقع ويب حديث متجاوب بالكامل يعرض قوائم الطعام واستمارات التواصل للمطاعم.",
+                btn_view_repo: "عرض المستودع",
+                btn_live_demo: "العرض المباشر",
+                title_design_projects: "🎨 مشاريع التصميم",
+                des1_title: "شعار BakStyle للأزياء",
+                des1_desc: "شعار فاخر مصمم لعلامة تجارية في مجال الموضة باللونين الذهبي والأسود.",
+                des2_title: "الشعار الشخصي BYA",
+                des2_desc: "هوية بصرية حديثة تركز على خدمات هندسة البرمجيات والتصميم الجرافيكي.",
+                des3_title: "شعار Clim Doctor للخدمات",
+                des3_desc: "شعار متجهات لشركة تكييف وصيانة أجهزة التبريد.",
+                des4_title: "منشورات وإعلانات تجارية",
+                des4_desc: "تصاميم إعلانية ترويجية لمتاجر الموضة والأقمشة والمناسبات.",
+                des5_title: "تصاميم السيرة الذاتية (CV)",
+                des5_desc: "نماذج سيرة ذاتية احترافية متوافقة مع أنظمة تتبع المتقدمين ATS.",
+                des6_title: "تصاميم وسائل التواصل الاجتماعي",
+                des6_desc: "منشورات وبانرات تسويقية عالية الجودة لعلامات تجارية صغيرة.",
+                key_features_label: "الميزات الرئيسية:",
+                title_skills: "🛠 المهارات التقنية",
+                skills_prog: "البرمجة",
+                skills_backend: "أطر عمل الخلفية",
+                skills_frontend_db: "الواجهة الأمامية وقواعد البيانات",
+                skills_tools: "أدوات التطوير",
+                skills_design_tools: "أدوات التصميم",
+                skills_office: "مايكروسوفت أوفيس",
+                skills_ai: "أتمتة الذكاء الاصطناعي",
+                skills_languages: "اللغات",
+                lang_french: "الفرنسية",
+                lang_english: "الإنجليزية",
+                title_contact: "📞 اتصل بي",
+                contact_details_title: "التفاصيل المباشرة",
+                contact_email_label: "البريد الإلكتروني",
+                location_label: "الموقع",
+                form_title: "إرسال رسالة مباشرة",
+                form_subtext: "قم بملء النموذج لإرسال رسالة مباشرة إلى bakariyazid4@gmail.com.",
+                form_name_label: "اسمك",
+                form_email_label: "بريدك الإلكتروني",
+                form_phone_label: "رقم هاتفك",
+                form_message_label: "الرسالة",
+                btn_send: "إرسال الرسالة",
+                translate_portfolio: "ترجمة المحفظة:"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', lang);
+            }
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-bs-theme', newTheme);
+            themeIcon.className = newTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        });
+
+        const greetings = [
+            "Welcome to BYA TECH & DESIGN!",
+            "Bienvenue sur BYA TECH & DESIGN!",
+            "¡Bienvenido a BYA TECH & DESIGN!",
+            "مرحباً بكم في BYA TECH & DESIGN!"
+        ];
+
+        let speed = 100, eraseSpeed = 50, delayBetween = 2000;
+        let textIndex = 0, charIndex = 0, isDeleting = false;
+        const targetElement = document.getElementById("typingGreeting");
+
+        function typeEffect() {
+            const currentText = greetings[textIndex];
+            
+            if (isDeleting) {
+                targetElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                targetElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, delayBetween);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % greetings.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? eraseSpeed : speed);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (targetElement) typeEffect();
+        });
+    </script>
+</body>
+</html>

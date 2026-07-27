@@ -1,0 +1,165 @@
+:root {
+    --bg-main: #0b132b;
+    --bg-card: rgba(28, 37, 65, 0.65);
+    --text-main: #ffffff;
+    --text-muted: #a0aec0;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --accent-color: #00f2fe;
+    --accent-gradient: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    --header-bg: rgba(11, 19, 43, 0.85);
+    --input-bg: rgba(15, 23, 42, 0.8);
+}
+
+[data-bs-theme="light"] {
+    --bg-main: #f4f7fe;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --accent-color: #0072ff;
+    --accent-gradient: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+    --header-bg: rgba(244, 247, 254, 0.9);
+    --input-bg: #ffffff;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* STICKY COMBINED HEADER CONTAINER */
+.sticky-header-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ANIMATED TYPING BANNER */
+.typing-banner {
+    background: rgba(0, 198, 255, 0.1);
+    border-bottom: 1px solid var(--border-color);
+}
+.typing-text {
+    border-right: 2px solid var(--accent-color);
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: blink 0.75s step-end infinite;
+}
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-color); }
+}
+
+/* GLASSMORPHISM CARDS */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.glass-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+.text-custom-muted {
+    color: var(--text-muted) !important;
+}
+
+/* BUTTONS */
+.btn-custom {
+    background: var(--accent-gradient);
+    color: #fff !important;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.6rem 1.4rem;
+    transition: opacity 0.3s ease;
+}
+.btn-custom:hover {
+    opacity: 0.9;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+.lang-btn:hover, .lang-btn.active {
+    background: var(--accent-gradient);
+    color: #fff;
+    border-color: transparent;
+}
+
+.badge-tech {
+    background: rgba(0, 198, 255, 0.15);
+    color: var(--accent-color);
+    border: 1px solid rgba(0, 198, 255, 0.3);
+    margin-right: 4px;
+    margin-bottom: 4px;
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    border-radius: 6px;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.theme-toggle-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.brand-logo {
+    height: 38px;
+    width: auto;
+}
+
+.design-showcase-img {
+    max-height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.form-control-custom {
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+.form-control-custom:focus {
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 198, 255, 0.25);
+}
+
+/* RTL Specific Styling for Arabic */
+html[dir="rtl"] .border-start {
+    border-right: 4px solid #0072ff !important;
+    border-left: 0 !important;
+    padding-right: 1rem !important;
+    padding-left: 0 !important;
+}
