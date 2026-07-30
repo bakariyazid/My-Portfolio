@@ -28,7 +28,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark py-2">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                    <img src="/Images/My logo.png" alt="BYA Logo" class="brand-logo" >
+                    <span class="brand-logo-wrap" aria-hidden="true"><img src="Images/My logo.png" alt="" class="brand-logo"></span>
+                    <span class="visually-hidden">BYA Tech &amp; Design</span>
                     <span class="fw-bold fs-5">BYA TECH & DESIGN</span>
                 </a>
                 
@@ -88,7 +89,7 @@
 
         <!-- PROFILE PICTURE PLACEHOLDER -->
 
-                <div class="col-lg-5 text-center">
+                <!-- <div class="col-lg-5 text-center">
 
                     <div class="profile-frame mx-auto">
 
@@ -108,7 +109,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
     </section>
 
@@ -278,7 +279,7 @@
                         </div>
                         <div class="mt-3 d-flex gap-2">
                             <a href="#" class="btn btn-sm btn-custom" data-i18n="btn_live_demo">Live Demo</a>
-                            <a href="https://github.com/bakariyazid" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_github">GitHub</a>
+                            <a href="https://github.com/bakariyazid/BAKARIYAZID-SEW108-Practical-exam-2025.git" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_github">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -295,11 +296,11 @@
                 
                 <!-- Design 1 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                    <div class="glass-card design-card h-100 d-flex flex-column justify-content-between text-center">
                         <div>
                  <div class="design-img-container mb-3">
 
-                                <img src="/Images/Rahman.png" alt="BakStyle Fashion Designer Logo" class="img-fluid rounded design-showcase-img">
+                                <img src="Images/Rahman.png" alt="BakStyle Fashion Designer Logo" class="img-fluid rounded design-showcase-img">
 
                             </div>
                             <h4 data-i18n="des1_title">BakStyle Fashion Logo</h4>
@@ -313,10 +314,10 @@
 
                 <!-- Design 2 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                    <div class="glass-card design-card h-100 d-flex flex-column justify-content-between text-center">
                         <div>
                             <div class="design-img-container mb-3">
-                                <img src="/Images/My logo.png" alt="BYA Personal Brand Logo" class="img-fluid rounded design-showcase-img" onerror="this.src='https://via.placeholder.com/300x180?text=BYA+Logo'">
+                                <img src="Images/My logo.png" alt="BYA Personal Brand Logo" class="img-fluid rounded design-showcase-img" onerror="this.src='https://via.placeholder.com/300x180?text=BYA+Logo'">
                             </div>
                             <h4 data-i18n="des2_title">BYA Personal Brand Logo</h4>
                             <p class="text-custom-muted" data-i18n="des2_desc">Modern tech-focused identity created for software engineering and graphic design services.</p>
@@ -329,10 +330,10 @@
 
                 <!-- Design 3 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                    <div class="glass-card design-card h-100 d-flex flex-column justify-content-between text-center">
                         <div>
                             <div class="design-img-container mb-3">
-                                <img src="/Images/Rahimi.png" alt="Clim Doctor Service Brand Logo" class="img-fluid rounded design-showcase-img" onerror="this.src='https://via.placeholder.com/300x180?text=Clim+Doctor+Logo'">
+                                <img src="Images/Rahimi.png" alt="Clim Doctor Service Brand Logo" class="img-fluid rounded design-showcase-img" onerror="this.src='https://via.placeholder.com/300x180?text=Clim+Doctor+Logo'">
                             </div>
                             <h4 data-i18n="des3_title">Clim Doctor Service Logo</h4>
                             <p class="text-custom-muted" data-i18n="des3_desc">Clean vector concept logo designed for an HVAC, air conditioning, and maintenance company.</p>
@@ -345,11 +346,10 @@
 
                 <!-- Design 4 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                    <div class="glass-card design-card h-100 d-flex flex-column justify-content-between text-center">
                         <div>
-                            <div class="p-4 mb-3 rounded border border-secondary">
-                                <i class="fa-solid fa-bullhorn fa-3x text-info mb-2"></i>
-                                <h5>Promotional Graphics</h5>
+                            <div class="design-placeholder design-placeholder--flyer mb-3">
+                                <span class="design-placeholder__eyebrow">CAMPAIGN</span><i class="fa-solid fa-bullhorn"></i><span class="design-placeholder__title">Promotional<br>Graphics</span>
                             </div>
                             <h4 data-i18n="des4_title">Business Flyers</h4>
                             <p class="text-custom-muted" data-i18n="des4_desc">Professional promotional flyers for fashion boutiques, fabric stores, and birthday campaigns.</p>
@@ -362,11 +362,10 @@
 
                 <!-- Design 5 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                    <div class="glass-card design-card h-100 d-flex flex-column justify-content-between text-center">
                         <div>
-                            <div class="p-4 mb-3 rounded border border-secondary">
-                                <i class="fa-solid fa-file-contract fa-3x text-info mb-2"></i>
-                                <h5>Document Layouts</h5>
+                            <div class="design-placeholder design-placeholder--resume mb-3">
+                                <span class="design-placeholder__eyebrow">EDITORIAL</span><i class="fa-solid fa-file-lines"></i><span class="design-placeholder__title">Document<br>Layouts</span>
                             </div>
                             <h4 data-i18n="des5_title">CV & Resume Designs</h4>
                             <p class="text-custom-muted" data-i18n="des5_desc">Clean, ATS-friendly resume and CV templates tailored for tech professionals and business executives.</p>
@@ -380,11 +379,10 @@
 
                 <!-- Design 6 -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card h-100 d-flex flex-column justify-content-between text-center">
+                    <div class="glass-card design-card h-100 d-flex flex-column justify-content-between text-center">
                         <div>
-                            <div class="p-4 mb-3 rounded border border-secondary">
-                                <i class="fa-solid fa-hashtag fa-3x text-info mb-2"></i>
-                                <h5>Social Marketing</h5>
+                            <div class="design-placeholder design-placeholder--social mb-3">
+                                <span class="design-placeholder__eyebrow">DIGITAL</span><i class="fa-solid fa-hashtag"></i><span class="design-placeholder__title">Social<br>Marketing</span>
                             </div>
                             <h4 data-i18n="des6_title">Social Media Graphics</h4>
                             <p class="text-custom-muted" data-i18n="des6_desc">High-converting social media posts, stories, and banner designs for small business branding.</p>
@@ -572,32 +570,33 @@
                 <div class="col-lg-7">
                     <div class="glass-card">
                         <h4 class="mb-3" data-i18n="form_title">Send a Message Directly</h4>
-                        <p class="text-custom-muted small mb-4" data-i18n="form_subtext">Fill out this form to launch a pre-filled message directly to <strong>bakariyazid4@gmail.com</strong>.</p>
+                        <p class="text-custom-muted small mb-4" data-i18n="form_subtext">Your message will be prepared professionally for both WhatsApp lines and email. You can review it before sending.</p>
                         
-                        <form id="contactForm">
+                        <form id="contactForm" action="https://formspree.io/f/xvzelqql" method="POST" novalidate>
                             <div class="mb-3">
                                 <label for="senderName" class="form-label" data-i18n="form_name_label">Your Name</label>
-                                <input type="text" class="form-control form-control-custom" id="senderName" placeholder="Enter your full name" required>
+                                <input type="text" class="form-control form-control-custom" id="senderName" name="name" placeholder="Enter your full name" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="senderEmail" class="form-label" data-i18n="form_email_label">Your Email</label>
-                                <input type="email" class="form-control form-control-custom" id="senderEmail" placeholder="name@example.com" required>
+                                <input type="email" class="form-control form-control-custom" id="senderEmail" name="email" placeholder="name@example.com" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="senderPhone" class="form-label" data-i18n="form_phone_label">Your Phone Number</label>
-                                <input type="tel" class="form-control form-control-custom" id="senderPhone" placeholder="+234 / +229 ..." required>
+                                <input type="tel" class="form-control form-control-custom" id="senderPhone" name="phone" placeholder="+234 / +229 ..." required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="senderMessage" class="form-label" data-i18n="form_message_label">Message</label>
-                                <textarea class="form-control form-control-custom" id="senderMessage" rows="4" placeholder="Write your message or inquiry here..." required></textarea>
+                                <textarea class="form-control form-control-custom" id="senderMessage" name="message" rows="4" placeholder="Write your message or inquiry here..." required></textarea>
                             </div>
 
                             <div class="d-flex flex-wrap gap-2">
-                                <button type="submit" class="btn btn-custom flex-grow-1" data-i18n="btn_send"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
+                                <button type="submit" class="btn btn-custom flex-grow-1" data-i18n="btn_send"><i class="fa-solid fa-paper-plane me-2"></i>Prepare &amp; Send Message</button>
                             </div>
+                            <p id="formStatus" class="form-status mt-3 mb-0" role="status" aria-live="polite"></p>
                         </form>
                     </div>
                 </div>
@@ -688,12 +687,16 @@
                 contact_email_label: "Email Address",
                 location_label: "Location",
                 form_title: "Send a Message Directly",
-                form_subtext: "Fill out this form to launch a pre-filled message directly to bakariyazid4@gmail.com.",
+                form_subtext: "Your message will be prepared professionally for both WhatsApp lines and email. You can review it before sending.",
                 form_name_label: "Your Name",
                 form_email_label: "Your Email",
                 form_phone_label: "Your Phone Number",
                 form_message_label: "Message",
                 btn_send: "Send Message",
+                form_invalid: "Please complete all fields with valid information.",
+                form_sending: "Sending your message securely…",
+                form_success: "Your email message has been sent successfully. You can now send your WhatsApp messages.",
+                form_error: "Your WhatsApp chats are ready, but the email could not be sent. Please try again or email Bakari directly.",
                 translate_portfolio: "Translate Portfolio:"
             },
             fr: {
@@ -754,12 +757,16 @@
                 contact_email_label: "Adresse Email",
                 location_label: "Localisation",
                 form_title: "Envoyer un Message Directement",
-                form_subtext: "Remplissez ce formulaire pour envoyer un message à bakariyazid4@gmail.com.",
+                form_subtext: "Votre message sera préparé pour les deux lignes WhatsApp et l'e-mail. Vous pourrez le vérifier avant l'envoi.",
                 form_name_label: "Votre Nom",
                 form_email_label: "Votre Email",
                 form_phone_label: "Votre Numéro de Téléphone",
                 form_message_label: "Message",
                 btn_send: "Envoyer le Message",
+                form_invalid: "Veuillez remplir tous les champs avec des informations valides.",
+                form_sending: "Envoi sécurisé de votre message…",
+                form_success: "Votre message a été envoyé par e-mail. Vous pouvez maintenant envoyer vos messages WhatsApp.",
+                form_error: "Vos discussions WhatsApp sont prêtes, mais l'e-mail n'a pas pu être envoyé. Réessayez ou écrivez directement à Bakari.",
                 translate_portfolio: "Traduire le Portfolio :"
             },
             es: {
@@ -820,12 +827,16 @@
                 contact_email_label: "Correo Electrónico",
                 location_label: "Ubicación",
                 form_title: "Enviar un Mensaje Directamente",
-                form_subtext: "Llena este formulario para enviar un mensaje directamente a bakariyazid4@gmail.com.",
+                form_subtext: "Tu mensaje se preparará para ambas líneas de WhatsApp y el correo electrónico. Podrás revisarlo antes de enviarlo.",
                 form_name_label: "Tu Nombre",
                 form_email_label: "Tu Correo",
                 form_phone_label: "Tu Teléfono",
                 form_message_label: "Mensaje",
                 btn_send: "Enviar Mensaje",
+                form_invalid: "Completa todos los campos con información válida.",
+                form_sending: "Enviando tu mensaje de forma segura…",
+                form_success: "Tu mensaje de correo se envió correctamente. Ahora puedes enviar tus mensajes de WhatsApp.",
+                form_error: "Tus chats de WhatsApp están listos, pero no se pudo enviar el correo. Inténtalo de nuevo o escribe a Bakari directamente.",
                 translate_portfolio: "Traducir Portafolio:"
             },
             ar: {
@@ -896,7 +907,17 @@
             }
         };
 
+        Object.assign(translations.ar, {
+            form_invalid: "يرجى إكمال جميع الحقول بمعلومات صحيحة.",
+            form_sending: "يتم إرسال رسالتك بأمان…",
+            form_success: "تم إرسال رسالتك عبر البريد الإلكتروني بنجاح. يمكنك الآن إرسال رسائل واتساب.",
+            form_error: "محادثات واتساب جاهزة، لكن تعذر إرسال البريد الإلكتروني. يرجى المحاولة مرة أخرى أو مراسلة بكاري مباشرة."
+        });
+
+        let currentLanguage = 'en';
+
         function switchLanguage(lang) {
+            currentLanguage = lang;
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -919,6 +940,11 @@
                     btn.classList.add('active');
                 }
             });
+
+            const statusKey = formStatus?.dataset.statusKey;
+            if (statusKey && translations[lang]?.[statusKey]) {
+                formStatus.textContent = translations[lang][statusKey];
+            }
         }
 
         const themeToggleBtn = document.getElementById('themeToggleBtn');
@@ -930,6 +956,63 @@
             
             document.documentElement.setAttribute('data-bs-theme', newTheme);
             themeIcon.className = newTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        function setFormStatus(key, type = '') {
+            formStatus.dataset.statusKey = key;
+            formStatus.textContent = translations[currentLanguage][key] || translations.en[key];
+            formStatus.className = `form-status ${type} mt-3 mb-0`.trim();
+        }
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.classList.add('was-validated');
+                setFormStatus('form_invalid', 'is-error');
+                return;
+            }
+
+            const name = document.getElementById('senderName').value.trim();
+            const email = document.getElementById('senderEmail').value.trim();
+            const phone = document.getElementById('senderPhone').value.trim();
+            const enquiry = document.getElementById('senderMessage').value.trim();
+            const subject = `BYA TECH & DESIGN | New portfolio enquiry from ${name}`;
+            const message = `Hello Bakari,\n\nI am contacting you through your BYA Tech & Design portfolio.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${enquiry}\n\nKind regards,\n${name}`;
+            const encodedMessage = encodeURIComponent(message);
+
+            // Each WhatsApp number needs its own chat. The visitor reviews and sends the prepared message in WhatsApp.
+            window.open(`https://wa.me/2290166189917?text=${encodedMessage}`, '_blank', 'noopener');
+            window.open(`https://wa.me/2348050386872?text=${encodedMessage}`, '_blank', 'noopener');
+
+            formStatus.textContent = 'Sending your message securely…';
+            formStatus.className = 'form-status mt-3 mb-0';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        subject,
+                        brand: 'BYA TECH & DESIGN — Portfolio Contact Form',
+                        name,
+                        email,
+                        phone,
+                        message: enquiry
+                    })
+                });
+
+                if (!response.ok) throw new Error('Form submission failed');
+
+                contactForm.reset();
+                contactForm.classList.remove('was-validated');
+                setFormStatus('form_success', 'is-success');
+            } catch (error) {
+                setFormStatus('form_error', 'is-error');
+            }
         });
 
         const greetings = [
