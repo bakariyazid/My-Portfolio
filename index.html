@@ -604,6 +604,39 @@
         </div>
     </section>
 
+    <!-- WELCOME MODAL -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content welcome-modal">
+                <button type="button" id="welcomeCloseBtn" class="btn-close welcome-modal__close" aria-label="Close welcome message"></button>
+                <div class="welcome-modal__hero">
+                    <div class="welcome-modal__brand">
+                        <span class="welcome-modal__logo"><img src="Images/My logo.png" alt="BYA TECH &amp; DESIGN logo"></span>
+                        <p class="welcome-modal__eyebrow">Welcome to BYA TECH &amp; DESIGN</p>
+                    </div>
+                    <h2 class="welcome-modal__title" id="welcomeModalTitle">Let’s create something remarkable.</h2>
+                    <p class="welcome-modal__copy">From reliable web applications to polished visual identities, I help turn ambitious ideas into work that performs.</p>
+                </div>
+                <div class="welcome-modal__body">
+                    <div class="welcome-modal__services">
+                        <span><i class="fa-solid fa-code"></i> Web development</span>
+                        <span><i class="fa-solid fa-pen-nib"></i> Brand design</span>
+                        <span><i class="fa-solid fa-paper-plane"></i> Fast response</span>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" id="welcomeContactBtn" class="btn btn-custom"><i class="fa-solid fa-message me-2"></i>Start a conversation</button>
+                        <button type="button" id="welcomeProjectsBtn" class="btn btn-outline-secondary welcome-modal__secondary">Explore my work</button>
+                    </div>
+                    <label class="welcome-modal__option"><input class="form-check-input me-2" type="checkbox" id="hideWelcomeModal"> Don’t show this again</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="pageDirectionBtn" class="page-direction-btn" aria-label="Scroll to top" title="Scroll to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <!-- FOOTER WITH LANGUAGE TRANSLATION OPTIONS -->
     <footer class="py-4 text-center border-top border-secondary mt-5">
         <div class="container">
@@ -611,11 +644,13 @@
                 <span class="text-custom-muted small d-block mb-2">
                     <i class="fa-solid fa-globe me-1"></i> <span data-i18n="translate_portfolio">Translate Portfolio:</span>
                 </span>
-                <div class="d-flex justify-content-center flex-wrap gap-2">
-                    <button type="button" class="btn btn-sm lang-btn active" onclick="switchLanguage('en')">English</button>
-                    <button type="button" class="btn btn-sm lang-btn" onclick="switchLanguage('fr')">Français (French)</button>
-                    <button type="button" class="btn btn-sm lang-btn" onclick="switchLanguage('es')">Español (Spanish)</button>
-                    <button type="button" class="btn btn-sm lang-btn" onclick="switchLanguage('ar')">العربية (Arabic)</button>
+                <div class="google-translate-helper mt-3">
+                    <span class="text-custom-muted small d-block mb-2"><i class="fa-solid fa-language me-1"></i>Select your language:</span>
+                    <select id="websiteLanguageSelect" class="website-language-select" aria-label="Choose website language" onchange="translateWithGoogle(this.value)">
+                        <option value="" selected disabled>Choose a language</option>
+                        <option value="en">English</option><option value="de">German</option><option value="fr">French</option><option value="pt">Portuguese</option><option value="it">Italian</option><option value="ar">Arabic</option><option value="zh-CN">Chinese</option><option value="ja">Japanese</option><option value="es">Spanish</option><option value="ko">Korean</option><option value="pl">Polish</option>
+                    </select>
+                    <div id="google_translate_element"></div>
                 </div>
             </div>
 
@@ -625,6 +660,52 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function hideGoogleTranslateBanner() {
+            document.querySelectorAll('iframe.goog-te-banner-frame, .goog-te-banner-frame, .goog-te-balloon-frame, #goog-gt-tt').forEach(element => {
+                if (element.style.display !== 'none') element.style.setProperty('display', 'none', 'important');
+            });
+
+            if (document.body.style.top !== '0px') {
+                document.body.style.setProperty('top', '0px', 'important');
+            }
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,de,fr,pt,it,ar,zh-CN,ja,es,ko,pl',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            hideGoogleTranslateBanner();
+            new MutationObserver(hideGoogleTranslateBanner).observe(document.documentElement, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['style', 'class']
+            });
+        }
+
+        function translateWithGoogle(languageCode) {
+            if (!languageCode) return;
+            sessionStorage.setItem('byaWelcomeModalDismissedForSession', 'true');
+
+            if (languageCode === 'en') {
+                document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+                document.cookie = `googtrans=; path=/; domain=${location.hostname}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+                location.reload();
+                return;
+            }
+
+            document.cookie = `googtrans=/en/${languageCode}; path=/`;
+            document.cookie = `googtrans=/en/${languageCode}; path=/; domain=${location.hostname}`;
+            location.reload();
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!-- JS LOGIC -->
     <script>
@@ -949,6 +1030,8 @@
 
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
+        const pageDirectionBtn = document.getElementById('pageDirectionBtn');
+        const pageDirectionIcon = pageDirectionBtn.querySelector('i');
 
         themeToggleBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-bs-theme');
@@ -957,6 +1040,21 @@
             document.documentElement.setAttribute('data-bs-theme', newTheme);
             themeIcon.className = newTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
         });
+
+        function updatePageDirectionButton() {
+            const isNearTop = window.scrollY < 80;
+            pageDirectionIcon.className = isNearTop ? 'fa-solid fa-arrow-down' : 'fa-solid fa-arrow-up';
+            pageDirectionBtn.setAttribute('aria-label', isNearTop ? 'Scroll to bottom' : 'Scroll to top');
+            pageDirectionBtn.title = isNearTop ? 'Scroll to bottom' : 'Scroll to top';
+        }
+
+        pageDirectionBtn.addEventListener('click', () => {
+            const isNearTop = window.scrollY < 80;
+            window.scrollTo({ top: isNearTop ? document.documentElement.scrollHeight : 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', updatePageDirectionButton, { passive: true });
+        updatePageDirectionButton();
 
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
@@ -1042,6 +1140,34 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             if (targetElement) typeEffect();
+
+            const welcomeModalElement = document.getElementById('welcomeModal');
+            const hideWelcomeModal = document.getElementById('hideWelcomeModal');
+
+            if (welcomeModalElement && !localStorage.getItem('byaWelcomeModalDismissed') && !sessionStorage.getItem('byaWelcomeModalDismissedForSession')) {
+                const welcomeModal = new bootstrap.Modal(welcomeModalElement);
+                const welcomeContactBtn = document.getElementById('welcomeContactBtn');
+                const welcomeProjectsBtn = document.getElementById('welcomeProjectsBtn');
+                const welcomeCloseBtn = document.getElementById('welcomeCloseBtn');
+
+                function closeWelcomeAndScroll(sectionId) {
+                    welcomeModalElement.addEventListener('hidden.bs.modal', () => {
+                        document.querySelector(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, { once: true });
+                    welcomeModal.hide();
+                }
+
+                welcomeContactBtn?.addEventListener('click', () => closeWelcomeAndScroll('#contact'));
+                welcomeProjectsBtn?.addEventListener('click', () => closeWelcomeAndScroll('#dev-projects'));
+                welcomeCloseBtn?.addEventListener('click', () => welcomeModal.hide());
+                welcomeModal.show();
+
+                welcomeModalElement.addEventListener('hidden.bs.modal', () => {
+                    if (hideWelcomeModal.checked) {
+                        localStorage.setItem('byaWelcomeModalDismissed', 'true');
+                    }
+                }, { once: true });
+            }
         });
     </script>
 </body>

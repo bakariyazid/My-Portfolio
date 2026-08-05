@@ -1,3 +1,4 @@
 {
-    "github.copilot.completions.chat.enabled": true
+    "github.copilot.completions.chat.enabled": true,
+    "liveServer.settings.port": 5501
 }
