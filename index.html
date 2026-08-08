@@ -81,35 +81,12 @@
 
                 <div class="col-lg-5 text-center">
                     <div class="profile-frame mx-auto">
-                        <img src="https://via.placeholder.com/350x350?text=Bakari+Yazid+Akanni" alt="Bakari Yazid Akanni Profile Picture" class="img-fluid rounded-circle profile-img shadow">
+                        <img src="/Images/My Pic.jpg" alt="Bakari Yazid Akanni Profile Picture" class="img-fluid rounded-circle profile-img shadow">
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- PROFILE PICTURE PLACEHOLDER -->
-
-                <!-- <div class="col-lg-5 text-center">
-
-                    <div class="profile-frame mx-auto">
-
-                        <img src="https://via.placeholder.com/350x350?text=Upload+Your+Photo+Here" alt="Bakari Yazid Akanni Profile Picture" class="img-fluid rounded-circle profile-img">
-
-                        <div class="profile-overlay-badge">
-
-                            <i class="fa-solid fa-camera text-white"></i>
-
-                        </div>
-
-                    </div>
-
-                    <p class="text-muted small mt-3">Replace <code>src</code> on this image tag with your personal photo!</p>
-
-                </div>
-
-            </div>
-
-        </div> -->
+        
 
     </section>
 
@@ -644,13 +621,13 @@
                 <span class="text-custom-muted small d-block mb-2">
                     <i class="fa-solid fa-globe me-1"></i> <span data-i18n="translate_portfolio">Translate Portfolio:</span>
                 </span>
-                <div class="google-translate-helper mt-3">
+                <div class="translation-control mt-3 notranslate">
                     <span class="text-custom-muted small d-block mb-2"><i class="fa-solid fa-language me-1"></i>Select your language:</span>
-                    <select id="websiteLanguageSelect" class="website-language-select" aria-label="Choose website language" onchange="translateWithGoogle(this.value)">
+                    <select id="websiteLanguageSelect" class="website-language-select" aria-label="Choose website language" onchange="translatePortfolio(this.value)">
                         <option value="" selected disabled>Choose a language</option>
                         <option value="en">English</option><option value="de">German</option><option value="fr">French</option><option value="pt">Portuguese</option><option value="it">Italian</option><option value="ar">Arabic</option><option value="zh-CN">Chinese</option><option value="ja">Japanese</option><option value="es">Spanish</option><option value="ko">Korean</option><option value="pl">Polish</option>
                     </select>
-                    <div id="google_translate_element"></div>
+                    <p id="translationStatus" class="translation-status text-custom-muted small mb-0" role="status" aria-live="polite"></p>
                 </div>
             </div>
 
@@ -661,54 +638,95 @@
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- JS LOGIC -->
     <script>
-        function hideGoogleTranslateBanner() {
-            document.querySelectorAll('iframe.goog-te-banner-frame, .goog-te-banner-frame, .goog-te-balloon-frame, #goog-gt-tt').forEach(element => {
-                if (element.style.display !== 'none') element.style.setProperty('display', 'none', 'important');
+        const supportedPortfolioLanguages = new Set(['en', 'de', 'fr', 'pt', 'it', 'ar', 'zh-CN', 'ja', 'es', 'ko', 'pl']);
+        let originalTextNodes = [];
+        let activePortfolioLanguage = 'en';
+
+        function getTranslatableTextNodes() {
+            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    const parent = node.parentElement;
+                    if (!parent || !node.nodeValue.trim() || parent.closest('script, style, noscript, code, pre, .notranslate, [data-no-translate], [contenteditable="true"]')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return /[A-Za-zÀ-ÖØ-öø-ÿ]/.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+                }
             });
 
-            if (document.body.style.top !== '0px') {
-                document.body.style.setProperty('top', '0px', 'important');
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            return nodes;
+        }
+
+        function saveOriginalText() {
+            if (!originalTextNodes.length) {
+                originalTextNodes = getTranslatableTextNodes().map(node => ({ node, text: node.nodeValue }));
             }
         }
 
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,de,fr,pt,it,ar,zh-CN,ja,es,ko,pl',
-                autoDisplay: false,
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-
-            hideGoogleTranslateBanner();
-            new MutationObserver(hideGoogleTranslateBanner).observe(document.documentElement, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                attributeFilter: ['style', 'class']
+        function restoreOriginalText() {
+            originalTextNodes.forEach(({ node, text }) => {
+                if (node.isConnected) node.nodeValue = text;
             });
+            document.documentElement.setAttribute('lang', 'en');
+            document.documentElement.setAttribute('dir', 'ltr');
         }
 
-        function translateWithGoogle(languageCode) {
-            if (!languageCode) return;
+        async function requestTranslations(texts, languageCode) {
+            const response = await fetch('/api/translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ texts, target: languageCode })
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok || !Array.isArray(result.translations)) {
+                throw new Error(result.error || 'The translation service is unavailable.');
+            }
+            return result.translations;
+        }
+
+        async function translatePortfolio(languageCode) {
+            const select = document.getElementById('websiteLanguageSelect');
+            const status = document.getElementById('translationStatus');
+            if (!supportedPortfolioLanguages.has(languageCode)) return;
+
             sessionStorage.setItem('byaWelcomeModalDismissedForSession', 'true');
+            saveOriginalText();
+            restoreOriginalText();
+            activePortfolioLanguage = languageCode;
 
             if (languageCode === 'en') {
-                document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-                document.cookie = `googtrans=; path=/; domain=${location.hostname}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-                location.reload();
+                status.textContent = 'Showing the original English version.';
                 return;
             }
 
-            document.cookie = `googtrans=/en/${languageCode}; path=/`;
-            document.cookie = `googtrans=/en/${languageCode}; path=/; domain=${location.hostname}`;
-            location.reload();
-        }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            select.disabled = true;
+            status.textContent = 'Translating your portfolio…';
 
-    <!-- JS LOGIC -->
-    <script>
+            try {
+                const translations = await requestTranslations(originalTextNodes.map(item => item.text), languageCode);
+                originalTextNodes.forEach(({ node, text }, index) => {
+                    if (!node.isConnected) return;
+                    const leadingSpace = text.match(/^\s*/)[0];
+                    const trailingSpace = text.match(/\s*$/)[0];
+                    node.nodeValue = `${leadingSpace}${translations[index].trim()}${trailingSpace}`;
+                });
+                document.documentElement.setAttribute('lang', languageCode);
+                document.documentElement.setAttribute('dir', languageCode === 'ar' ? 'rtl' : 'ltr');
+                status.textContent = 'Translation ready.';
+            } catch (error) {
+                restoreOriginalText();
+                activePortfolioLanguage = 'en';
+                select.value = 'en';
+                status.textContent = 'Translation is not available yet. Please try again shortly.';
+                console.error('Portfolio translation failed:', error);
+            } finally {
+                select.disabled = false;
+            }
+        }
+
         const translations = {
             en: {
                 nav_about: "About",
@@ -1063,6 +1081,17 @@
             formStatus.dataset.statusKey = key;
             formStatus.textContent = translations[currentLanguage][key] || translations.en[key];
             formStatus.className = `form-status ${type} mt-3 mb-0`.trim();
+
+            if (activePortfolioLanguage !== 'en') {
+                const statusInEnglish = formStatus.textContent;
+                requestTranslations([statusInEnglish], activePortfolioLanguage)
+                    .then(([translatedStatus]) => {
+                        if (formStatus.dataset.statusKey === key && activePortfolioLanguage !== 'en') {
+                            formStatus.textContent = translatedStatus;
+                        }
+                    })
+                    .catch(() => {});
+            }
         }
 
         contactForm.addEventListener('submit', async (event) => {
