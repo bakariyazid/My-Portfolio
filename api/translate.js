@@ -1,4 +1,5 @@
 const SUPPORTED_LANGUAGES = new Set(['en', 'de', 'fr', 'pt', 'it', 'ar', 'zh-CN', 'ja', 'es', 'ko', 'pl']);
+
 function readBody(body) {
   if (typeof body === 'string') {
     try {
@@ -35,6 +36,7 @@ module.exports = async function handler(req, res) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+
     const translateResult = await translateResponse.json().catch(() => ({}));
 
     if (!translateResponse.ok || !Array.isArray(translateResult.translatedText)) {
@@ -43,7 +45,7 @@ module.exports = async function handler(req, res) {
 
     return res.status(200).json({ translations: translateResult.translatedText });
   } catch (error) {
-    console.error('LibreTranslate request failed:', error);
+    console.error('LibreTranslate request failed:', error.message);
     return res.status(502).json({ error: 'Translation provider is unavailable.' });
   }
 }
