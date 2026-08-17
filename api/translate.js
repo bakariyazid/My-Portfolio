@@ -1,5 +1,4 @@
-const SUPPORTED_LANGUAGES = new Set(['de', 'fr', 'pt', 'it', 'ar', 'zh-CN', 'ja', 'es', 'ko', 'pl']);
-
+const SUPPORTED_LANGUAGES = new Set(['en', 'de', 'fr', 'pt', 'it', 'ar', 'zh-CN', 'ja', 'es', 'ko', 'pl']);
 function readBody(body) {
   if (typeof body === 'string') {
     try {
