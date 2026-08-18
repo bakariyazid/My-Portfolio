@@ -255,8 +255,8 @@
                             </div>
                         </div>
                         <div class="mt-3 d-flex gap-2">
-                            <a href="#" class="btn btn-sm btn-custom" data-i18n="btn_live_demo">Live Demo</a>
-                            <a href="https://github.com/bakariyazid/BAKARIYAZID-SEW108-Practical-exam-2025.git" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_github">GitHub</a>
+                            <a href="https://bakariyazid-sew-108-practical-exam.vercel.app" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_live_demo">Live Demo</a>
+                            <a href="https://github.com/bakariyazid/BAKARIYAZID-SEW108-Practical-exam-2025.git" target="_blank" class="btn btn-sm btn-outline-info" data-i18n="btn_view_repo">View Repository</a>
                         </div>
                     </div>
                 </div>
@@ -546,10 +546,10 @@
                 <!-- Interactive Form -->
                 <div class="col-lg-7">
                     <div class="glass-card">
-                        <h4 class="mb-3" data-i18n="form_title">Send a Message Directly</h4>
+                        <h4 class="mb-3" data-i18n="form_title">You need my help? Send a Message Directly</h4>
                         <p class="text-custom-muted small mb-4" data-i18n="form_subtext">Your message will be prepared professionally for both WhatsApp lines and email. You can review it before sending.</p>
                         
-                        <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxN8JgSWgCH-NHGfPlVGMmFpuh6WbK1t8eYKdAm_dHLKlpJmO4EuI2jFkxfIE16Xc4i8Q/exec" method="POST" novalidate>
+                        <form id="contactForm" action="/api/contact" method="POST" novalidate>
                             <div class="mb-3">
                                 <label for="senderName" class="form-label" data-i18n="form_name_label">Your Name</label>
                                 <input type="text" class="form-control form-control-custom" id="senderName" name="name" placeholder="Enter your full name" required>
@@ -727,6 +727,7 @@
             }
         }
 
+        /* Legacy hardcoded language dictionary: no longer used by live translation.
         const translations = {
             en: {
                 nav_about: "About",
@@ -1046,6 +1047,15 @@
             }
         }
 
+        */
+
+        const formStatusMessages = {
+            form_invalid: 'Please complete all fields with valid information.',
+            form_sending: 'Sending your message securely…',
+            form_success: 'Your email message has been sent successfully. You can now send your WhatsApp messages.',
+            form_error: 'Your WhatsApp chats are ready, but the email could not be sent. Please try again or email Bakari directly.'
+        };
+
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
         const pageDirectionBtn = document.getElementById('pageDirectionBtn');
@@ -1079,7 +1089,7 @@
 
         function setFormStatus(key, type = '') {
             formStatus.dataset.statusKey = key;
-            formStatus.textContent = translations[currentLanguage][key] || translations.en[key];
+            formStatus.textContent = formStatusMessages[key] || '';
             formStatus.className = `form-status ${type} mt-3 mb-0`.trim();
 
             if (activePortfolioLanguage !== 'en') {
@@ -1111,9 +1121,8 @@
             const message = `Hello Bakari,\n\nI am contacting you through your BYA Tech & Design portfolio.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${enquiry}\n\nKind regards,\n${name}`;
             const encodedMessage = encodeURIComponent(message);
 
-            // Each WhatsApp number needs its own chat. The visitor reviews and sends the prepared message in WhatsApp.
-            window.open(`https://wa.me/2290166189917?text=${encodedMessage}`, '_blank', 'noopener');
-            window.open(`https://wa.me/2348050386872?text=${encodedMessage}`, '_blank', 'noopener');
+            // Open the WhatsApp tab now so browsers do not block it while the email is sent.
+            const whatsappWindow = window.open('', '_blank');
 
             formStatus.textContent = 'Sending your message securely…';
             formStatus.className = 'form-status mt-3 mb-0';
@@ -1121,14 +1130,24 @@
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
-                    mode: 'no-cors',
-                    body: new URLSearchParams({ subject, name, email, phone, message: enquiry })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, message: enquiry })
                 });
+
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok || !result.whatsappMessage) {
+                    console.error('Contact form API error:', { status: response.status, response: result });
+                    throw new Error(result.debug || result.error || 'Contact delivery failed.');
+                }
+
+                whatsappWindow.location.href = `https://wa.me/2348050386872?text=${encodeURIComponent(result.whatsappMessage)}`;
 
                 contactForm.reset();
                 contactForm.classList.remove('was-validated');
                 setFormStatus('form_success', 'is-success');
             } catch (error) {
+                whatsappWindow?.close();
+                console.error('Contact form submission failed:', error);
                 setFormStatus('form_error', 'is-error');
             }
         });
